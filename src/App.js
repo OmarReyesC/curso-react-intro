@@ -5,7 +5,6 @@ import { TodoList } from './TodoList';
 import { TodoItem } from './TodoItem';
 import { CreateTodoButton } from './CreateTodoButton';
 
-import './App.css';
 
 const defaultTodos = [
   {text: 'Pasear a Oreo', completed: true},
