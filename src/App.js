@@ -7,8 +7,8 @@ import { CreateTodoButton } from './CreateTodoButton';
 
 
 const defaultTodos = [
-  {text: 'Pasear a Oreo', completed: true},
-  {text: 'Ducha', completed: false},
+  {text: 'Pasear a la Oreo', completed: true},
+  {text: 'LA Ducha', completed: false},
   {text: 'Comer', completed: true},
   {text: 'Faire la vaiselle', completed: false},
   {text: 'Faire du velo', completed: false},
@@ -26,6 +26,13 @@ function App() {
     todo => todo.completed).length;
   const totalTodos = todos.length;
   
+  const searchedTodos = todos.filter(
+    (todo) => {
+      const todoText = todo.text.toLowerCase();
+      const searchText = searchValue.toLowerCase();
+      return todoText.includes(searchText);
+    }
+  );
 
   return (
     <React.Fragment>
@@ -39,7 +46,7 @@ function App() {
       />
 
       <TodoList>
-        {defaultTodos.map(todo => (
+        {searchedTodos.map(todo => (
           <TodoItem 
           key={todo.text} 
           text={todo.text} 
